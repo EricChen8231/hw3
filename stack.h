@@ -4,20 +4,17 @@
 #include <vector>
 #include <stdexcept>
 
-// Use inheritance from std::vector (choose public/private) as appropriate
 template <typename T>
-class Stack 
+class Stack : private std::vector<T>
 {
 public:
     Stack();
     ~Stack();
     bool empty() const;
     size_t size() const;
-    void push(const T& item);
-    void pop();  // throws std::underflow_error if empty
-    const T& top() const; // throws std::underflow_error if empty
-    // Add other members only if necessary
+    void push(const T &item);
+    void pop();
+    const T &top() const;
 };
-
-
+#include "stack.cpp"
 #endif
